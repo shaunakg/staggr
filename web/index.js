@@ -4,15 +4,7 @@
 // Hackathon: https://hack-the-crisis-australia.devpost.com/
 
 // Include local environment variables
-var dotenv = require('dotenv').config({path:__dirname + '/postgres.env', debug: process.env.DEBUG});
-
-if (process.env.LOCAL_CONN) {
-    console.log("Using local connection string: " + process.env.LOCAL_CONN);
-} else if (process.env.DATABASE_URL) {
-    console.log("Using Heroku-provided DB URL: " + process.env.DATABASE_URL);
-} else {
-    console.log("Didn't find local connection URL or Heroku DB. Program will most likely fail");
-}
+var dotenv = require('dotenv').config({path:__dirname + '/staggr.env', debug: process.env.DEBUG});
 
 // Include web dependencies
 var express = require('express');
@@ -20,20 +12,20 @@ var app = express();
 var http = require('http').createServer(app);
 const querystring = require('querystring');
 
-// Include Heroku's Postgres module and setup a database
-const { Client } = require('pg');
+// Setup SQLite3 Database
+const sqlite3 = require('sqlite3').verbose();
 
-const client = new Client({
-    connectionString: process.env.DATABASE_URL || process.env.LOCAL_CONN,
-    ssl: true,
+console.log("Attempting connection to on-disk database @ " + __dirname + "\\..\\database\\staggr.db");
+let db = new sqlite3.Database(__dirname + "\\..\\database\\staggr.db", (err) => {
+    if (err) {
+        return console.error(err.message);
+    }
+    console.log('Connected to the on-disk SQlite database.');
 });
 
-client.connect();
-
-client.query('SELECT table_schema,table_name FROM information_schema.tables;', (err, res) => {
-    if (err) throw err;
-    for (let row of res.rows) {
-        console.log(JSON.stringify(row));
+db.close((err) => {
+    if (err) {
+        return console.error(err.message);
     }
-    client.end();
+    console.log('Close the database connection.');
 });
