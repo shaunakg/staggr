@@ -13,7 +13,7 @@ const querystring = require('querystring');
 const path = require('path');
 
 // Setup static file directory
-app.use(express.static("static"));
+app.use(express.static("/../static"));
 
 app.get("/", (req, res) => {
     res.sendFile(path.resolve(__dirname + "/../static/index.html"));
