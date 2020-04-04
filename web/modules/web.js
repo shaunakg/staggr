@@ -1,3 +1,8 @@
+// Staggr [Essential Web Server Controller]
+// Created in 48 hours for the Hack The Crisis Hackathon Australia
+// Github: https://github.com/shaunakg/stagger-it
+// Hackathon: https://hack-the-crisis-australia.devpost.com/
+
 // Include dependencies
 let express = require('express');
 let app = express();
