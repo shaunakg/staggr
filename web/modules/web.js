@@ -10,9 +10,20 @@ let http = require('http').createServer(app);
 let db_functions = require("./db_functions");
 const webport = process.env.PORT || 8080;
 const querystring = require('querystring');
+const path = require('path');
 
 // Setup static file directory
 app.use(express.static("static"));
+
+app.get("/", (req, res) => {
+    res.sendFile(path.resolve(__dirname + "/../static/index.html"));
+})
+
+app.get("/stylesheet.css", (req, res) => {
+    res.sendFile(path.resolve(__dirname + "/../static/stylesheet.css"), headers = {
+        'Content-Type' : 'text/css'
+    });
+})
 
 app.get("/api/sc_info_delivery", (req, res) => {
 

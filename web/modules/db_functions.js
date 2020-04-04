@@ -28,20 +28,19 @@ module.exports.initDb = function (sqlite3, __db_file_name) {
     });
 }
 
-module.exports.initTables = function (__db_file_name) {
+module.exports.initTables = function () {
     let __create_shopping_centers = `
-    CREATE TABLE shopping_centers (
-        center_id INTEGER PRIMARY KEY,
-        name TEXT NOT NULL,
-        google_popularity BLOB,
-        google_place_id TEXT UNIQUE NOT NULL,
-        homemade_popularity BLOB,
-    ) [WITHOUT ROWID];`;
+        CREATE TABLE shopping_centers (
+            center_id INTEGER PRIMARY KEY,
+            name TEXT NOT NULL,
+            google_popularity BLOB,
+            google_place_id TEXT UNIQUE NOT NULL,
+            homemade_popularity BLOB
+        )
+    `;
 
     module.exports.db.get(__create_shopping_centers, (err, row) => {
-        if (err.errno == 1) {
-            return console.log("Shopping centers table already exists inside database " + __db_file_name);
-        } else if (err) {
+        if (err) {
             return console.error(err);
         }
         return console.log("Created shopping centers table!!");

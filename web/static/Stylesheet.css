@@ -3,16 +3,47 @@
 *{
 	margin:0px;
 	padding:0px;
-} 
+}
+
+body {
+
+	background-color: #f35373;
+	min-height:100vh;
+	font-family: 'Noto Sans', sans-serif;
+	overflow: hidden;
+
+}
+
+a {
+	font-size: 10;
+}
 
 .box{
+
 	position:absolute;
 	left:50%;
 	top:50%;
 	transform: translate(-50%,-50%);
-	background-color: rgb(252, 246, 246);
-	border-radius:25px;
 	padding:70px 100px 20px 100px;
+
+	border-radius: 31px;
+	background: #EEEEEE;
+
+}
+
+.box .shopping_info .scphoto {
+	max-width: 50%;
+	border-radius: 25px;
+}
+
+.box .privacy-disclaimer {
+	font-size: 10px;
+	color: black;
+	opacity: 0.90;
+	width: 100%;
+	text-align: center;
+	margin-top: 50px;
+	margin-bottom: 0;
 }
 
 .box-title-text{
@@ -168,6 +199,22 @@ p {
 	color: white;
 }
 
+.wavy {
+	position: absolute;
+	left: 0;
+	right: 0;
+	min-height: 20%;
+	z-index: -1;
+}
+
+.wavy.bottom {
+	bottom: 0;
+}
+
+.wavy.top {
+	top: 0;
+}
+
 @media only screen and (max-width: 900px) {
 
 	body {
@@ -233,35 +280,3 @@ p {
 
 }
 
-@media only screen and (min-width: 901px) {
-	.box .privacy-disclaimer {
-		font-size: 10px;
-		color: black;
-		opacity: 0.90;
-		width: 100%;
-		text-align: center;
-		margin-top: 50px;
-		margin-bottom: 0;
-	}
-	
-	body{
-
-		background-image: url("img/bg-1.webp");
-		background-position: center;
-		background-origin: content-box;
-		background-repeat: no-repeat;
-		background-size: cover;
-		min-height:100vh;
-		font-family: 'Noto Sans', sans-serif;
-		overflow: hidden;
-
-	}
-
-	a{
-		font-size: 10;
-	}
-	.box{
-		box-shadow: 10px 10px 75px -35px rgba(0,0,0,0.75);
-	}
-
-}
