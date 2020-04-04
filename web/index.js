@@ -8,7 +8,7 @@ var dotenv = require('dotenv').config({path:__dirname + '/staggr.env', debug: pr
 
 // Setup SQLite3 Database
 const sqlite3 = require('sqlite3').verbose();
-const __db_file_name = __dirname + "..\\staggr.db";
+const __db_file_name = __dirname + "\\..\\staggr.db";
 var db_functions = require("./modules/db_functions.js");
 db_functions.initDb(sqlite3, "staggr.db");
 db_functions.initTables(__db_file_name);
