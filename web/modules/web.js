@@ -16,11 +16,11 @@ const path = require('path');
 app.use(express.static("static"));
 
 app.get("/", (req, res) => {
-    res.sendFile(path.resolve(__dirname + "/static/index.html"));
+    res.sendFile(path.resolve(__dirname + "/../static/index.html"));
 })
 
 app.get("/stylesheet.css", (req, res) => {
-    res.sendFile(path.resolve(__dirname + "/static/stylesheet.css"), headers = {
+    res.sendFile(path.resolve(__dirname + "/../static/stylesheet.css"), headers = {
         'Content-Type' : 'text/css'
     });
 })
