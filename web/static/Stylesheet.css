@@ -1,0 +1,266 @@
+
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans:400,400i,700,700i&subset=greek-ext');
+*{
+	margin:0px;
+	padding:0px;
+} 
+
+.box{
+	position:absolute;
+	left:50%;
+	top:50%;
+	transform: translate(-50%,-50%);
+	background-color: rgb(252, 246, 246);
+	border-radius:25px;
+	padding:70px 100px 20px 100px;
+}
+
+.box-title-text{
+	color:rgb(58, 58, 58);	
+	text-transform:uppercase;
+	font-size: 23px;
+	margin: -50px 0 80px 0;
+	display: block;
+	text-align: center;
+}
+
+p {
+	font-size: 10;
+}
+
+.box-desc-text{
+	color:rgb(58, 58, 58);	
+	font-size: 15px;
+	margin: -50px 0 20px 0;
+	display: block;
+	text-align: center;
+}
+
+.box-foot-text{
+	color:rgb(43, 43, 43);	
+	font-size: 10px;
+	display: block;
+	text-align: center;
+}
+.user-email {
+	padding: 5px;
+	font-size: 1em;
+	margin: 0 5px 0 5px;
+	background-color: rgba(0, 136, 255, 0.349);
+	border-radius: 3px;
+	user-select: none;
+	cursor: pointer;
+}
+
+.emails-container {
+	text-align: center;
+}
+
+.input-container{
+	position:relative;
+	margin-top: 25px;
+	margin-bottom:25px;
+}
+
+.input-container label{
+	position:absolute;
+	top:0px;
+	left:0px;
+	font-size:16px;
+	color: rgb(58, 58, 58);	
+	pointer-events:none;
+	transition: all 0.2s ease-in-out;
+}
+
+.input-container input{ 
+	border:0;
+	border-bottom:1px solid rgb(106, 240, 135);	
+	background:transparent;
+	width:100%;
+	padding:8px 0 5px 0;
+	font-size:16px;
+	color: rgb(58, 58, 58);
+}
+
+.input-container input:focus {
+	outline: none;
+	border-bottom:1px solid rgb(95, 62, 0);
+}
+
+.submit-btn{
+	align-items: center;
+	width: 35%;
+	background-color: rgb(0, 7, 0);	 
+	color: white;
+	padding: 14px 20px;
+	margin: 8px 0;
+	border: none;
+	border-radius: 6px;
+    cursor: pointer;
+    transition: 0.25s;
+}
+
+.submit-btn.green-btn:hover {
+	background-color: rgb(0, 104, 0);
+}
+
+.submit-btn:hover {
+    background-color: rgba(83, 79, 100, 0.91);
+    box-shadow: inset 10px 10px 43px -15px rgba(0,0,0,0.75);
+    transition: 0.25s;
+}
+
+.input-container input:focus ~ label, .input-container input:valid ~ label{
+	top:-12px;
+	font-size:12px;
+}
+
+.status-message {
+	position: fixed;
+	top: -50%;
+	width: calc(100% - 20px);
+	background-color: rgb(0, 165, 0);
+	padding: 40px 10px 40px 10px;
+	word-wrap: break-word;
+	text-align: center;
+	z-index: 999;
+
+	transition: 0.5s;
+}
+
+.status-message .msg {
+	color: white;
+	font-size: 1em;
+}
+
+.status-message .go-away {
+
+	cursor: pointer;
+	user-select: none;
+
+	font-size: 1.25em;
+	position: fixed;
+	right: 3%;
+	top: 2%;
+
+	margin-top: -50%;
+
+	transition: 0.5s;
+
+}
+
+.credits {
+
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+	text-align: center;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	font-size: 15px;
+	color: white;
+	background: rgba(85, 90, 89, 0.91);
+
+}
+
+.credits a {
+	color: white;
+}
+
+@media only screen and (max-width: 900px) {
+
+	body {
+        overflow: hidden;
+        font-size: 12px;
+    }
+
+    .box {
+        left: 4%;
+        right: 0;
+        max-width: 78%;
+        margin: 0;
+        transform: none;
+
+        padding: 0;
+        padding-left: 7%;
+        padding-right: 7%;
+
+        top: 2%;
+        bottom: 15%;
+        min-height: 70%;
+    }
+
+    .box-title-text {
+		margin: 20% 0 80px 0;		
+	}
+
+	.submit-btn {
+		font-size: auto;
+	}
+
+	body{
+		background-image: url("img/bg-1.webp");
+		background-position: center;
+		background-origin: content-box;
+		background-repeat: no-repeat;
+		background-size: cover;
+		min-height:100vh;
+		font-family: 'Noto Sans', sans-serif;
+		overflow: hidden;
+
+	}
+
+	.credits {
+		font-size: 10px;
+	}
+
+	a {
+		font-size: 10;
+		text-decoration: none;
+	}
+
+	.box .privacy-disclaimer {
+		font-size: 10px;
+		color: black;
+		opacity: 0.90;
+		width: 100%;
+		text-align: center;
+		margin-top: 10px;
+		margin-bottom: 0;
+	}
+	
+
+}
+
+@media only screen and (min-width: 901px) {
+	.box .privacy-disclaimer {
+		font-size: 10px;
+		color: black;
+		opacity: 0.90;
+		width: 100%;
+		text-align: center;
+		margin-top: 50px;
+		margin-bottom: 0;
+	}
+	
+	body{
+
+		background-image: url("img/bg-1.webp");
+		background-position: center;
+		background-origin: content-box;
+		background-repeat: no-repeat;
+		background-size: cover;
+		min-height:100vh;
+		font-family: 'Noto Sans', sans-serif;
+		overflow: hidden;
+
+	}
+
+	a{
+		font-size: 10;
+	}
+	.box{
+		box-shadow: 10px 10px 75px -35px rgba(0,0,0,0.75);
+	}
+
+}
