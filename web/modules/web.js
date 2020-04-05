@@ -37,6 +37,10 @@ app.get("/api/sc_info_delivery", (req, res) => {
     // gmapsId = String (required)
     // homemade_popularity = Array (required, format: [day, time])
 
+    if (!req.query.gmapsId) {
+        return res.redirect(303, "../../?status=400_wrong_params");
+    }
+
     console.log("New shopping center data input query: " + req.query.gmapsId)
     let row = db_functions.fetchShoppingRow("gmapsid", req.query.gmapsId)[0];
     console.log(row);
