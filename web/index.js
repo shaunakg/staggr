@@ -9,6 +9,8 @@ var dotenv = require('dotenv').config({path:__dirname + '/staggr.env', debug: pr
 // Include JSON database
 var db_functions = require("./modules/db_functions.js");
 
+db_functions.startSampling();
+
 // Setup web server
 const web = require("./modules/web");
 
