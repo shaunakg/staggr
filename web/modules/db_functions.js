@@ -102,6 +102,18 @@ module.exports.dataTemplate = {
     }
 }
 
+module.exports.insertSampleData = function() {
+
+    let sampleDataTemplate = module.exports.dataTemplate;
+    for (var key in sampleDataTemplate) {
+        for (var key2 in sampleDataTemplate[key]) {
+            sampleDataTemplate[key][key2] = key2 * 1.5;
+        }
+    }
+    module.exports.insertShoppingRow("The Dubai Mall", "ChIJB1zIKShoXz4RnbaTPPup7aU", Buffer.from(JSON.stringify(sampleDataTemplate)).toString(), null);
+
+}
+
 module.exports.insertShoppingRow = function(name, gmapsid, homemade_popularity, google_popularity) {
     let newEntry = {
 
@@ -133,16 +145,19 @@ module.exports.fetchShoppingRow = function (column, val) {
 
 module.exports.updateShoppingData = function (match_column, match_val, new_column, new_val) {
 
+    let updated;
+
     for (var i in module.exports.db) {
 
         if (i[match_column] == match_val) {
             i[new_column] = new_val;
         }
 
-        console.log("Updated " + i.gmapsid);
+        updated = i;
+        break;
 
     }
 
-    return true;
+    return updated;
 
 }

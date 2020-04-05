@@ -43,7 +43,7 @@
 
 const urlParams = new URLSearchParams(window.location.search);
 
-let hmpd = JSON.parse(atob(urlParams.get("homemade_popularity")));
+let hmpd = JSON.parse(urlParams.get("homemade_popularity"));
 let series = [];
 
 for (var key in hmpd) {
