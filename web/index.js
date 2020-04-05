@@ -6,12 +6,8 @@
 // Include local environment variables
 var dotenv = require('dotenv').config({path:__dirname + '/staggr.env', debug: process.env.DEBUG});
 
-// Setup SQLite3 Database
-const sqlite3 = require('sqlite3').verbose();
-const __db_file_name = __dirname + "\\..\\database\\staggr.db";
+// Include JSON database
 var db_functions = require("./modules/db_functions.js");
-db_functions.initDb(sqlite3, __db_file_name);
-db_functions.initTables();
 
 // Setup web server
 const web = require("./modules/web");
