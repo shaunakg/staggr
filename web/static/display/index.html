@@ -1,0 +1,93 @@
+
+<!doctype html>
+
+<html lang="en-AU">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/disp-stylesheet.css">
+    <link rel="shortcut icon" href="../img/favicon.svg" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Staggr | Viewing shopping density</title>
+
+    <meta charset="utf-8">
+    <meta name="description" content="Staggr allows users to coordinate and stagger their shopping times during the COVID-19 crisis.">
+    <meta name="keywords" content="Coronavirus,COVID-19,Health,Safety,Privacy,Anonymous,STD,STI,Disease,Infection,Endemic,Pandemic,Epidemic,2019,2020,Shopping,Hackathon">
+    <meta name="author" content="Shaunak Gadkari">
+    <meta name="creator" content="Shaunak Gadkari">
+    <meta name="creator" content="Abinash Ram Sunthar">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="color" content="#485a78">
+    <meta name="color-scheme" content="only light">
+
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/chartist.js/latest/chartist.min.css"></link>
+
+</head>
+
+<body>
+
+<div class="middle-chart ct-chart ct-major-seventh"></div>
+
+<span class="credits">
+
+    <a href="https://github.com/shaunakg/staggr">STAGGR</a> was created by 
+    <a href="https://github.com/shaunakg">@shaunakg</a> and 
+    <a href="https://github.com/abinash3366">@abinash3366</a> for the 
+    <a href="https://hack-the-crisis-australia.devpost.com/"> Hack The Crisis Hackathon</a>.
+
+</span>
+
+<script src="//cdn.jsdelivr.net/chartist.js/latest/chartist.min.js""></script>
+
+<script>
+
+const urlParams = new URLSearchParams(window.location.search);
+
+let hmpd = JSON.parse(atob(urlParams.get("homemade_popularity")));
+let series = [];
+
+for (var key in hmpd) {
+    let curr_ser = []
+    for (var key1 in hmpd[key]) {
+        curr_ser.push(hmpd[key][key1]);
+    }
+    series.push(curr_ser);
+}
+
+var data = {
+
+    labels: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+    series: series
+
+}
+
+var options = {
+    seriesBarDistance: 10
+};
+
+var responsiveOptions = [
+  ['screen and (min-width: 641px) and (max-width: 1024px)', {
+    seriesBarDistance: 10,
+    axisX: {
+      labelInterpolationFnc: function (value) {
+        return value;
+      }
+    }
+  }],
+  ['screen and (max-width: 640px)', {
+    seriesBarDistance: 5,
+    axisX: {
+      labelInterpolationFnc: function (value) {
+        return value[0];
+      }
+    }
+  }]
+];
+
+new Chartist.Bar('.ct-chart', data, options, responsiveOptions);
+
+</script>
+
+</body>
+
+</html>

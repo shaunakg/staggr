@@ -32,6 +32,14 @@ a {
 
 }
 
+.middle-chart {
+
+	margin: 10%;
+	padding: 20px;
+	background: #EEEEEE;
+
+}
+
 .box .shopping_info .scphoto {
 	max-width: 50%;
 	border-radius: 25px;

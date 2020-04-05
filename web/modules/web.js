@@ -19,14 +19,32 @@ app.get("/", (req, res) => {
     res.sendFile(path.resolve(__dirname + "/../static/index.html"));
 })
 
+app.get("/display/", (req, res) => {
+    res.sendFile(path.resolve(__dirname + "/../static/display/index.html"));
+})
+
 app.get("/stylesheet.css", (req, res) => {
     res.sendFile(path.resolve(__dirname + "/../static/stylesheet.css"), headers = {
         'Content-Type' : 'text/css'
     });
 })
 
+app.get("/disp-stylesheet.css", (req, res) => {
+    res.sendFile(path.resolve(__dirname + "/../static/display/disp-stylesheet.css"), headers = {
+        'Content-Type' : 'text/css'
+    });
+})
+
 app.get("/libs/node_vibrant.js", (req, res) => {
     res.sendFile(path.resolve(__dirname + "/../../node_modules/node-vibrant/dist/vibrant.min.js"))
+});
+
+app.get("/libs/chartist.css", (req, res) => {
+    res.sendFile(path.resolve(__dirname + "/../../node_modules/chartist/dist/chartist.min.css"))
+});
+
+app.get("/libs/chartist.js", (req, res) => {
+    res.sendFile(path.resolve(__dirname + "/../../node_modules/chartist/dist/chartist.min.js"))
 });
 
 app.get("/api/sc_info_delivery", (req, res) => {

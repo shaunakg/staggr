@@ -1,0 +1,33 @@
+
+
+body {
+	min-height:100vh;
+	font-family: 'Noto Sans', sans-serif;
+	overflow: hidden;
+	transition: 0.5s;
+}
+
+.middle-chart {
+	position: absolute;
+	margin: 10px;
+	top: 0;
+    max-height: 75vh;
+}
+
+.credits {
+
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+	text-align: center;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	font-size: 15px;
+	color: white;
+	background: rgba(85, 90, 89, 0.91);
+
+}
+
+.credits a {
+	color: white;
+}
