@@ -16,6 +16,5 @@ const web = require("./modules/web");
 
 process.on("SIGTERM", function () {
     console.log("Recieved SIGTERM signal, will close database connection and exit.");
-    db_functions.dbClose();
     return 1;
 })
